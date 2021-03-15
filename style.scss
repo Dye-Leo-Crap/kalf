@@ -1,0 +1,368 @@
+$bounce : cubic-bezier(0.175, 0.885, 0.320, 1.275);
+$snap: cubic-bezier(1.000, 0.005, 0.240, 1.000);
+$whitey: rgba(238, 238, 238, 0.89);
+
+
+* {
+    box-sizing: border-box;
+}
+
+.animate_content {
+    animation: animate 3s ease-in;
+  }
+  
+.fadeIn {
+    z-index: 10;
+  }
+
+body {
+    margin: 0;
+    width: 100vw; 
+    display: block;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    background-color: rgb(255, 255, 255);
+    width: 100vw;
+}
+
+body {
+    overflow: hidden;
+    height: 100%;
+    margin: 0;
+}
+
+.top-page {
+  height: 100%;
+  background-color: #faf6d6;
+  display: block;
+}
+.logo {
+    background-image: url(img/kalf-white.png);
+    background-size: contain;
+    opacity: 1;
+    height: 100px;
+    width: 110px;
+    z-index: 2;
+    right: 20px;
+    top: 5px;
+    position: fixed;
+    animation: 1s ease-in-out infinite alternate rotation;
+  }
+
+.menu_toggle {
+  z-index: 900;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: block;
+  cursor: pointer;
+  width: 100px;
+  height: 80px;
+  background-color: black;
+  border-radius: 0 0 100% 0;
+
+    &:active {
+        i {
+            opacity: 0.8;
+        } 
+    }
+  i {
+    color: white;
+  }
+
+.menu_open,
+  .menu_close {
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    margin-top: -15px;
+    margin-left: -12px;
+    transition: transform .7s cubic-bezier(1.000, 0.005, 0.240, 1.000);
+    color: white;
+    font-size: 30px;
+  }
+  .menu_open {
+    transform-origin: -100px -100px;
+  }
+  .menu_close {
+    transform: rotate(20deg);
+    transform-origin: -100px -160px;
+  }
+}
+
+.shazam {
+  .content, .content-news {
+    transform: rotate(-30deg);
+  }
+  
+  
+  .menu_open {
+    transform: rotate(-20deg);
+  }
+  .menu_close {
+    transform: rotate(0);
+  }
+  
+  .menu_items {
+    li {
+      transform: translateX(0);
+      transition: transform .35s .45s $bounce;
+    
+      &:nth-child(2){
+        transition-delay: .47s;
+      }
+      &:nth-child(3){
+        transition-delay: .48s;
+      }
+    }
+  }
+}
+
+.menu_items {
+  position: fixed;
+  bottom: 0;
+  left: 50px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  
+  li {
+    height: 60px;
+    margin-bottom: 30px;
+    transform: translateX(-300px);
+    transition: transform .7s 0s $snap;
+    font-family: 'DotGothic16', sans-serif;
+    
+    &:nth-child(2){
+      margin-left: 40px;
+    }
+    &:nth-child(3){
+      margin-left: 80px;
+    }
+    &:nth-child(4){
+      margin-left: 120px;
+    }
+  }
+  a {
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: black;
+    transition: color .2s;
+    transform: all 1s ease-in-out;
+  }
+
+  a:hover {
+    transform : scale(1.7);
+    color:#3afcfc;
+    text-shadow: 3px 3px 12px rgba(58, 252, 252, 0.973);
+    cursor: pointer;
+
+    &:first-child {
+      padding-left: 30px;
+    }
+  }
+}
+
+
+.content {
+  // essential
+  height: 100vh; // make higher or you'll see background when rotated
+  transform-origin: top left;
+  transition: transform .7s $snap;
+
+  
+  // styling
+  background-image: url(img/bg-tapes.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  backface-visibility: hidden;
+  animation: slideBg 10s linear infinite 0s;
+  animation-timing-function: ease;
+}
+
+.content-inner {
+  // essential
+  //height: 50%; // compensate for higher .content
+  overflow-y: auto; // set expected overflow
+  padding-left: 100px;
+}
+
+
+/* Social média */
+.social {
+  position: absolute;
+  width: 150px;
+  height: 50px;
+  right: 0;
+  bottom: 0;
+
+  ul {
+
+    display: flex;
+    justify-content:space-between;
+
+      li {
+      list-style: none;
+    }
+  }
+}
+
+h1 {
+  text-transform: uppercase;
+  font-size: 130px;
+  font-weight: 100;
+  color: #3afcfc;
+  text-shadow: 3px 3px 12px rgba(58, 252, 252, 0.973);
+  font-family: 'DotGothic16', sans-serif;
+}
+
+h1 span {
+  position: relative;
+}
+
+.lignes {
+  position: absolute;
+  bottom: 22%;
+  left: 100px;
+  background: #f1f1f1af;
+}
+
+.l1 {
+  position: absolute;
+  width: 250px;
+  height: 3px;
+  background: #3afcfc;
+  border-radius: 5px;
+}
+
+.l2 {
+  width: 140px;
+  height: 3px;
+  background: #3afcfc;
+  border-radius: 5px;
+  position: absolute;
+  top: 20px;
+}
+.social-fb {
+  background-image: url(img/facebook-white.png);
+  background-size: cover;
+  height: 20px;
+  width: 20px;
+}
+
+.social-bc {
+  background-image: url(img/bandcamp-logotype-light-512.png);
+  background-size: cover;
+  height: 25px;
+  width: 90px;
+  margin-right: 20px;
+}
+.social ul {
+  padding: 0;
+  margin: 0;
+}
+
+/* ========= Section News ========= */
+
+.content-news {
+  margin: 0 15% 0 15%;
+  padding-top: 5%;
+  height: 100vh;
+  display: block;
+  transform-origin: top left;
+  transition: transform .7s $snap;
+}
+
+
+.content-news-inner {
+  height: 50%;
+}
+
+.img-top {
+  background-image: url(img/goat.jpg);
+  width: 100%;
+  height: 200px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 2px -27px 31px -13px rgba(250,246,214, 1) inset;
+}
+
+.title-news {
+  font-family: 'DotGothic16', sans-serif;
+  margin-top: 0;
+  position: relative;
+  font-size: 40px;
+
+  &::after {
+    content: "";
+    height: 2px;
+    width: 100px;
+    left: 0;
+    background: #3afcfcb7;
+    position: absolute;
+    bottom: 0;
+  }
+}
+
+.article-news p {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+.article-box {
+  border: solid black 1px;
+}
+
+@keyframes rotation {
+  from {
+      transform: rotate(-20deg)
+  }
+  to {
+     transform: rotate(10deg)
+  }
+}
+
+@keyframes slideBg {
+  0% {
+    background-image: url('img/bg-tapes.jpg');
+  }
+
+  50% {
+    background-image: url('img/2.jpg');
+  }
+
+  100% {
+    background-image: url('img/bg-tapes.jpg');
+  }
+}
+
+@keyframes fall {
+  to {
+      transform: translateX(105vw);
+  }
+ }
+ 
+ @keyframes rotation {
+   from {
+       transform: rotate(-20deg)
+   }
+   to {
+      transform: rotate(10deg)
+   }
+ }
+ 
+ @keyframes hover {
+   from {
+       transform: scale(1);
+   } to {
+       transform : scale(1.1)
+   }
+ }
+
